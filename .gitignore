@@ -1,36 +1,44 @@
-# 👇 ملفات البيئة
-.env
-.env.*
-
-# 👇 مجلدات وملفات Python المؤقتة
+# Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*.sqlite3
 
-# 👇 مجلدات النظام/المحررات
+# Env & Secrets
+.env
+*.key
+*.pem
+*.crt
+
+# OS
 .DS_Store
+Thumbs.db
+
+# VSCode / IDE
 .vscode/
 .idea/
 
-# 👇 ملفات الفواتير المؤقتة والصادرات
-invoices/*.pdf
+# Logs
+*.log
+
+# Flask
+instance/
+.env.*
+
+# Translations cache
+*.mo
+
+# Compiled PDF & Excel
+*.pdf
 *.xlsx
 *.xls
 
-# 👇 ملفات الترجمة المؤقتة
-*.mo
-*.pot
-
-# 👇 ملفات OS
-Thumbs.db
-ehthumbs.db
-
-# 👇 مجلدات البناء والتوزيع إن وجدت
-build/
+# Node (if present for frontend)
+node_modules/
 dist/
-*.egg-info/
+build/
 
-# 👇 قاعدة بيانات إن وجدت بصيغة ملف
-*.sqlite3
-*.db
+# MacOS
+*.DS_Store
+
+# Render deploy
+render.yaml
