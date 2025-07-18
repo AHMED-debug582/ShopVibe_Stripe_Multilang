@@ -1,0 +1,12 @@
+[
+  {
+    "name": "VIP Role",
+    "description": "Get a shiny VIP role",
+    "price": 100
+  },
+  {
+    "name": "Golden Tag",
+    "description": "Unique username badge",
+    "price": 250
+  }
+]

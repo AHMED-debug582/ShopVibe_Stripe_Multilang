@@ -1,0 +1,16 @@
+[
+  {
+    "id": "123456789",
+    "balance": 1200,
+    "inventory": ["Sword", "Shield"],
+    "level": 5,
+    "xp": 320
+  },
+  {
+    "id": "987654321",
+    "balance": 900,
+    "inventory": ["Bow"],
+    "level": 3,
+    "xp": 180
+  }
+]
