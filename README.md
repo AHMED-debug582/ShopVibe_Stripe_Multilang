@@ -1,83 +1,42 @@
+# ShopVibe - Multilingual eCommerce Platform (Landing Page)
 
-# 🛍️ ShopVibe - Multilingual eCommerce Web App
+Welcome to the landing page of **ShopVibe** — a modern, multilingual eCommerce solution built to empower developers, entrepreneurs, and startups to launch online stores effortlessly.
 
-ShopVibe is a full-featured eCommerce web application built with Python Flask, MongoDB, and Bootstrap.  
-It supports multi-language, admin control, secure authentication, product management, PDF/Excel reports, and more.
+## 🌟 What is ShopVibe?
 
----
+**ShopVibe** is a feature-rich eCommerce platform with:
 
-## 🚀 Features
+- Multilingual interface (English, Arabic, French, German, Spanish)
+- Stripe-powered secure checkout
+- Admin dashboard & analytics
+- Order tracking, reviews, and discount coupons
+- PDF invoices and Excel exports
 
-- 🔐 Admin login with email/password
-- 🧠 Smart dashboard with customer and order stats
-- 🛒 Full product CRUD system (Add/Edit/Delete)
-- 🌐 Multilingual support (English, Arabic, Spanish, French, German)
-- 🧾 Exportable PDF & Excel reports
-- 📦 Downloadable order invoices
-- 💳 Stripe payment integration (live-ready)
-- 🏷️ Discount & coupon management
-- 📈 Admin analytics & charts
-- 👤 User registration & order history
-- 🌍 Auto currency display by country
-- ⚙️ Built on Flask with MongoDB backend
+## 📊 Try It Live
 
----
+A hosted demo version will be deployed soon. Stay tuned!
 
-## 📂 Project Structure
+## 📁 Source Code
 
-```
-ShopVibe/
-├── app/
-│   ├── auth/           # Login, registration
-│   ├── admin/          # Admin panel & dashboard
-│   ├── shop/           # Products, cart, orders
-│   ├── static/         # CSS, JS, Images
-│   └── templates/      # HTML templates
-├── translations/       # Multilingual support
-├── requirements.txt
-├── README.md
-└── run.py
-```
+The complete project is available here:
+[GitHub Repo →](https://github.com/AHMED-debug582/ShopVibe_Stripe_Multilang)
+
+## ✉️ Want to Buy the Project?
+
+Interested in purchasing this project?
+
+- Visit the GitHub repository to explore features
+- View PDF pitch deck and full source in the `ShopVibe_Complete_Package.zip`
+- Ideal for reselling, launching your own SaaS store, or showcasing in a portfolio
+
+## ✨ Highlights
+
+- Fully responsive Bootstrap UI
+- Flask backend with MongoDB
+- JSON-based translation system (i18n)
+- Admin and customer portals
+- Designed for Render, Fly.io, and GitHub Pages hosting
 
 ---
 
-## 🌐 Live Demo
-
-**Render Live App**: _Coming soon_  
-**GitHub Repo**: [ShopVibe-Multilingual](https://github.com/your-username/ShopVibe-Multilingual)
-
----
-
-## 📄 Marketing Resources
-
-- [✔️ English Marketing PDF](ShopVibe_Marketing_EN.pdf)
-- 🖼️ Thumbnails & Screenshots (see /media folder)
-
----
-
-## 🛠️ Tech Stack
-
-- Python 3.11 + Flask
-- MongoDB (NoSQL)
-- Jinja2 Templates
-- Bootstrap 5 (Responsive UI)
-- PDF: ReportLab
-- Excel: openpyxl
-- Hosting: Render / GitHub Pages
-
----
-
-## 📦 Installation
-
-```bash
-git clone https://github.com/your-username/ShopVibe-Multilingual
-cd ShopVibe-Multilingual
-pip install -r requirements.txt
-python run.py
-```
-
----
-
-## 📧 Contact
-
-For support or inquiries: **admin@shopvibe.app**
+Built with passion by [ahmed madih]
