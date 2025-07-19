@@ -1,0 +1,13 @@
+{
+  "name": "ShopVibe – Multilingual E-commerce Template (Flask + Stripe)",
+  "category": "E-commerce / Python / Flask",
+  "price": "149",
+  "version": "1.0.0",
+  "live_preview_url": "https://your-demo-link.com",
+  "documentation": "Documentation/ShopVibe_Documentation.pdf",
+  "compatible_browsers": ["Chrome", "Firefox", "Safari", "Edge"],
+  "compatible_with": ["Python 3.9+", "Flask"],
+  "files_included": ["Python Files", "HTML", "CSS", "JavaScript", "JSON", "PDF"],
+  "layout": "Responsive",
+  "tags": ["flask", "ecommerce", "stripe", "multilingual", "i18n", "template"]
+}
