@@ -1,2 +1,0 @@
-{"_id": "u1", "name": "Ahmed", "email": "ahmed@example.com", "password": "hashed_pw", "role": "admin"}
-{"_id": "u2", "name": "Abderrahmane", "email": "Abderrahmane@example.com", "password": "hashed_pw", "role": "customer"}
