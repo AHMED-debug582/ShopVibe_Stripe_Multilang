@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <!-- صورة المنتج -->
+    <div class="col-md-5">
+      <img src="{{ product.image }}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+    </div>
+
+    <!-- تفاصيل المنتج -->
+    <div class="col-md-7">
+      <h3>{{ product.name }}</h3>
+      <p class="text-muted">{{ product.category }}</p>
+      <h4 class="text-success fw-bold">{{ product.price }} درهم</h4>
+      <p>{{ product.description }}</p>
+
+      <!-- التقييم -->
+      <div class="mb-3">
+        {% for i in range(5) %}
+          {% if i < product.rating %}
+            <i class="bi bi-star-fill text-warning"></i>
+          {% else %}
+            <i class="bi bi-star text-muted"></i>
+          {% endif %}
+        {% endfor %}
+        <small class="text-muted">({{ product.reviews|length }} مراجعة)</small>
+      </div>
+
+      <!-- زر الإضافة للسلة -->
+      <form method="POST" action="/add-to-cart/{{ product._id }}">
+        <div class="input-group mb-3" style="max-width: 140px;">
+          <input type="number" class="form-control" name="quantity" value="1" min="1">
+          <button type="submit" class="btn btn-dark">{{ t["أضف إلى السلة"] }}</button>
+        </div>
+      </form>
+
+      <!-- الشراء الفوري -->
+      <a href="/checkout/{{ product._id }}" class="btn btn-warning w-100">{{ t["شراء الآن"] }}</a>
+    </div>
+  </div>
+
+  <!-- المراجعات -->
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <h5>{{ t["آراء العملاء"] }}</h5>
+      <hr>
+      {% for review in product.reviews %}
+        <div class="mb-3">
+          <strong>{{ review.user }}</strong> {{ t["-"] }} <small class="text-muted">{{ review.date }}</small>
+          <div>
+            {% for i in range(5) %}
+              {% if i < review.rating %}
+                <i class="bi bi-star-fill text-warning"></i>
+              {% else %}
+                <i class="bi bi-star text-muted"></i>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <p>{{ review.comment }}</p>
+        </div>
+      {% else %}
+        <p class="text-muted">{{ t["لا توجد مراجعات بعد."] }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

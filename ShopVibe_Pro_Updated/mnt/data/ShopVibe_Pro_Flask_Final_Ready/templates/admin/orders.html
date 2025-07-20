@@ -1,0 +1,60 @@
+{% extends "admin/layout.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">{{ t["Orders"] }}</h2>
+    {% if orders %}
+    
+<form method="GET" action="/admin/orders" class="row g-3 mb-4">
+  <div class="col-auto">
+    <input type="text" name="q" class="form-control" placeholder="{{ t['Search by customer'] }}" value="{{ request.args.get('q', '') }}">
+  </div>
+  <div class="col-auto">
+    <select name="status" class="form-select">
+      <option value="">{{ t['All statuses'] }}</option>
+      <option value="Pending" {% if request.args.get('status') == 'Pending' %}selected{% endif %}>{{ t["Pending"] }}</option>
+      <option value="Shipped" {% if request.args.get('status') == 'Shipped' %}selected{% endif %}>{{ t["Shipped"] }}</option>
+      <option value="Cancelled" {% if request.args.get('status') == 'Cancelled' %}selected{% endif %}>{{ t["Cancelled"] }}</option>
+    </select>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-secondary">{{ t["Filter"] }}</button>
+  </div>
+</form>
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{ t["Order ID"] }}</th>
+                <th>{{ t["Customer"] }}</th>
+                <th>{{ t["Total"] }}</th>
+                <th>{{ t["Date"] }}</th>
+                <th>{{ t["Status"] }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order["_id"] }}</td>
+                <td>{{ order["customer_name"] }}</td>
+                <td>{{ order["total"] }} {{ order["currency"] }}</td>
+                <td>{{ order["date"] }}
+</td>
+<td>
+    <form method="POST" action="/admin/orders/update/{{ order['_id'] }}" class="d-flex">
+        <select name="status" class="form-select form-select-sm me-2">
+            <option value="Pending" {% if order["status"] == "Pending" %}selected{% endif %}>{{ t["Pending"] }}</option>
+            <option value="Shipped" {% if order["status"] == "Shipped" %}selected{% endif %}>{{ t["Shipped"] }}</option>
+            <option value="Cancelled" {% if order["status"] == "Cancelled" %}selected{% endif %}>{{ t["Cancelled"] }}</option>
+        </select>
+        <button type="submit" class="btn btn-sm btn-primary">{{ t["Update"] }}</button>
+    </form>
+</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>{{ t["No orders found."] }}</p>
+    {% endif %}
+</div>
+{% endblock %}
