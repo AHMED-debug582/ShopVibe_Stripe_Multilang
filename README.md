@@ -24,7 +24,8 @@ The complete project is available here:
 ## ✉️ Want to Buy the Project?
 
 Interested in purchasing this project?
-
+- ShopVibe Pro is available for purchase at 10,000 MAD (Moroccan Dirhams).
+Includes full source code, multilingual setup, admin panel, Stripe integration, and a complete marketing package.
 - Visit the GitHub repository to explore features
 - View PDF pitch deck and full source in the `ShopVibe_Complete_Package.zip`
 - Ideal for reselling, launching your own SaaS store, or showcasing in a portfolio
