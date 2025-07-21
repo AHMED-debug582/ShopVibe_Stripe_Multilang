@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h3 class="mb-4">{{ t["🛠️ لوحة تحكم المشرف - جميع الطلبات"] }}</h3>
+
+  {% if orders %}
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>{{ t["الطلب"] }}</th>
+            <th>{{ t["الاسم"] }}</th>
+            <th>{{ t["البريد الإلكتروني"] }}</th>
+            <th>{{ t["العنوان"] }}</th>
+            <th>{{ t["الحالة"] }}</th>
+            <th>{{ t["المجموع"] }}</th>
+            <th>{{ t["المنتجات"] }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in orders %}
+          <tr>
+            <td>{{ order._id }}</td>
+            <td>{{ order.name }}</td>
+            <td>{{ order.email }}</td>
+            <td>{{ order.address }}, {{ order.city }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order.total }} MAD</td>
+            <td>
+              <ul>
+                {% for item in order.items %}
+                  <li>{{ item.name }} (x{{ item.quantity }})</li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p>{{ t["لا توجد طلبات حالياً."] }}</p>
+  {% endif %}
+</div>
+{% endblock %}

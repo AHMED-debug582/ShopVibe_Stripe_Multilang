@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h3>{{ t["💳 الدفع"] }}</h3>
+  <hr>
+  {% if cart %}
+  <div class="row">
+    <div class="col-md-7">
+      <form method="POST" action="/process-checkout">
+        <div class="mb-3">
+          <label for="name" class="form-label">{{ t["الاسم الكامل"] }}</label>
+          <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">{{ t["البريد الإلكتروني"] }}</label>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">{{ t["العنوان"] }}</label>
+          <textarea name="address" class="form-control" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="city" class="form-label">{{ t["المدينة"] }}</label>
+          <input type="text" name="city" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ t["تأكيد الدفع"] }}</button>
+      </form>
+    </div>
+    <div class="col-md-5">
+      <h5>{{ t["🧾 ملخص الطلب"] }}</h5>
+      <ul class="list-group mb-3">
+        {% for item in cart %}
+        <li class="list-group-item d-flex justify-content-between lh-sm">
+          <div>
+            <h6 class="my-0">{{ item.name }}</h6>
+            <small class="text-muted">{{ item.quantity }} × {{ item.price }} درهم</small>
+          </div>
+          <span class="text-muted">{{ item.quantity * item.price }} درهم</span>
+        </li>
+        {% endfor %}
+        <li class="list-group-item d-flex justify-content-between">
+          <strong>{{ t["الإجمالي:"] }}</strong>
+          <strong>{{ total }} درهم</strong>
+        </li>
+      </ul>
+    </div>
+  </div>
+  {% else %}
+    <p class="text-muted">{{ t["سلتك فارغة."] }}</p>
+  {% endif %}
+</div>
+{% endblock %}

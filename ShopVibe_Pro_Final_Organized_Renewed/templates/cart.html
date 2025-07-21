@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h3>{{ t["🛒 سلة التسوق"] }}</h3>
+  <hr>
+  {% if cart %}
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>{{ t["المنتج"] }}</th>
+          <th>{{ t["السعر"] }}</th>
+          <th>{{ t["الكمية"] }}</th>
+          <th>{{ t["الإجمالي"] }}</th>
+          <th>{{ t["حذف"] }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart %}
+        <tr>
+          <td>
+            <img src="{{ item.image }}" width="50"> {{ item.name }}
+          </td>
+          <td>{{ item.price }} درهم</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price * item.quantity }} درهم</td>
+          <td>
+            <a href="/remove-from-cart/{{ item._id }}" class="btn btn-sm btn-outline-danger">{{ t["✖"] }}</a>
+          </td>
+        </tr>
+        {% endfor %}
+        <tr class="table-warning">
+          <td colspan="3" class="text-end"><strong>{{ t["الإجمالي الكلي:"] }}</strong></td>
+          <td colspan="2"><strong>{{ total }} درهم</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a href="/checkout" class="btn btn-success">{{ t["متابعة الدفع"] }}</a>
+  {% else %}
+    <p class="text-muted">{{ t["سلتك فارغة."] }}</p>
+  {% endif %}
+</div>
+{% endblock %}
