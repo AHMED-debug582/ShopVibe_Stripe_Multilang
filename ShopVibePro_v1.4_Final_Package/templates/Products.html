@@ -1,0 +1,37 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>{{ _('Product List') }}</h2>
+        <a href="/admin/add-product" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> {{ _('Add Product') }}
+        </a>
+    </div>
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>{{ _('Image') }}</th>
+                <th>{{ _('Name') }}</th>
+                <th>{{ _('Price') }}</th>
+                <th>{{ _('Stock') }}</th>
+                <th>{{ _('Actions') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td><img src="{{ product.image }}" width="50"></td>
+                <td>{{ product.name }}</td>
+                <td>${{ product.price }}</td>
+                <td>{{ product.stock }}</td>
+                <td>
+                    <a href="/admin/edit-product/{{ product._id }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></a>
+                    <a href="/admin/delete-product/{{ product._id }}" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-5" style="max-width: 400px;">
+    <h3 class="mb-4 text-center">{{ _('Login') }}</h3>
+    <form method="POST" action="/login">
+        <div class="mb-3">
+            <label class="form-label">{{ _('Email') }}</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">{{ _('Password') }}</label>
+            <input type="password" name="password" class="form-control" required>
+        </div>
+        <div class="g-recaptcha mb-3" data-sitekey="6LcUhlgrAAAAAADX_3PVXxpma7eD8rGwADxwpMJ9s"></div>
+        <button type="submit" class="btn btn-primary w-100">{{ _('Login') }}</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">{{ _('Orders') }}</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-primary">
+            <tr>
+                <th>{{ _('Order ID') }}</th>
+                <th>{{ _('Customer') }}</th>
+                <th>{{ _('Total') }}</th>
+                <th>{{ _('Status') }}</th>
+                <th>{{ _('Date') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>#{{ order._id }}</td>
+                <td>{{ order.customer_name }}</td>
+                <td>${{ order.total }}</td>
+                <td>
+                    <span class="badge bg-{{ 'success' if order.status == 'Completed' else 'warning' if order.status == 'Processing' else 'danger' }}">
+                        {{ _(order.status) }}
+                    </span>
+                </td>
+                <td>{{ order.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
